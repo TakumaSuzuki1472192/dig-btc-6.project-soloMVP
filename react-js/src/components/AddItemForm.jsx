@@ -10,7 +10,7 @@ function AddItemForm() {
   return (
     <>
       <form
-        action="http://localhost:3000/post"
+        action="/api/post"
         method="POST"
         encType="multipart/form-data"
       >

@@ -8,6 +8,7 @@ function Item({ item }) {
           <span>{item.room}</span>
         </div>
         <img src={item.image} alt="image" />
+        <img src="/api/uploads/1716475916969.jpg" alt="image" />
       </div>
     </>
   );

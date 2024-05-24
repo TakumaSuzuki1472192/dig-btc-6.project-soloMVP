@@ -1,8 +1,8 @@
 import axios from "axios";
 
+
 import { useEffect, useState } from "react";
 import "./App.css";
-
 import View from "./components/View";
 import SideBar from "./components/SideBar";
 
@@ -10,7 +10,7 @@ function App() {
   const [itemList, setItemList] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/items").then((res) => {
+    axios.get("/api/items").then((res) => {
       setItemList(res.data);
     });
   }, []);
