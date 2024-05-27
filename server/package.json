@@ -14,6 +14,7 @@
     "migrate": "knex migrate:latest",
     "makeMigration": "knex migrate:make",
     "makeSeed": "knex seed:make",
-    "seed": "knex seed:run"
+    "seed": "knex seed:run",
+    "build": "npm install && npm run migrate-latest"
   }
 }
