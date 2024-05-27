@@ -15,6 +15,6 @@
     "makeMigration": "knex migrate:make",
     "makeSeed": "knex seed:make",
     "seed": "knex seed:run",
-    "build": "npm install && npm run migrate && npm run makeSeed && mkdir uploads"
+    "build": "npm install && npm run migrate && npm run seed && mkdir uploads"
   }
 }
