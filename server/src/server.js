@@ -13,8 +13,8 @@ const itemsController = require("./fetch-items/items.controller");
 app.use(cors());
 app.use(express.json());
 
-app.use("/", express.static(path.join(__dirname, "dist")));
-app.use("/api/uploads", express.static(path.join(__dirname, "uploads"))); //画像置き場
+app.use("/", express.static(path.join(__dirname, "./dist")));
+app.use("/api/uploads", express.static(path.join(__dirname, "./uploads"))); //画像置き場
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`,{__dirname});
