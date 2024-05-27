@@ -1,5 +1,4 @@
 const knex = require("../knex");
-const { postForm } = require("./items.controller");
 const ITEMS_TABLE = "items";
 
 module.exports = {
@@ -10,7 +9,14 @@ module.exports = {
    * @return {Promise<Object>} DBにあるITEMSの配列をPromiseで返す
    */
   getAll(limit = 100) {
-    return knex.select().table(ITEMS_TABLE);
+    return knex("users")
+      .innerJoin(ITEMS_TABLE, "users.id", "=", "items.user_id")
+      .select();
   },
-
+  insertItem(itemObj) {
+    return knex(ITEMS_TABLE).insert(itemObj);
+  },
+  deleteAt(deleteId) {
+    return knex("items").where("id",deleteId).del();
+  }
 };

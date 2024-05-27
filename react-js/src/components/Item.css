@@ -1,10 +1,31 @@
 #itemContainer {
-  height: 300px;
+  position: relative;
+  height: 500px;
+  width: 44%;
   background-color: antiquewhite;
   color: black;
   margin: 20px;
   border-radius: 5px;
   padding: 20px;
-  box-shadow: inset 0 -3em 3em rgb(0 200 0 / 30%), 0 0 0 2px white,
-    0.3em 0.3em 1em rgb(200 0 0 / 60%);
+  box-shadow: 0.3em 0.3em 1em #00000090
+}
+
+#itemImage {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  box-shadow: 0.1em 0.1em 0.5em #00000090;
+  border-radius: 1px;
+}
+
+#itemContainer p {
+  text-align: left;
+  color: #735E59;
+}
+
+#addText {
+  background-color: #ffffff90;
+  height: 6rem;
+  text-align: left;
+  padding: 10px;
 }

@@ -1,7 +1,9 @@
 import "./SearchItems.css";
 
 function SearchItems () {
-    return <></>
+    return <>
+    <h3>- Search Items -</h3>
+    </>
 }
 
 export default SearchItems;

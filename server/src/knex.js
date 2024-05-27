@@ -1,4 +1,5 @@
-const config = require("../knexfile").development;
-const knex = require("knex")(config);
+const config = require("../knexfile");
+const knex = require("knex");
 
-module.exports = knex;
+const environment = process.env.DATABASE_URL ? "production" : "development";
+module.exports = knex(config[environment]);

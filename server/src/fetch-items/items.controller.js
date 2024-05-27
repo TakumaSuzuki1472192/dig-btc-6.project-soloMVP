@@ -1,13 +1,29 @@
-const { getAll } = require("./items.model");
 const itemsModel = require("./items.model");
 
 module.exports = {
   async index(req, res) {
-    const items = await getAll(1000);
+    const items = await itemsModel.getAll(1000);
     res.status(200).json(items);
   },
 
-  async postForm(req, res) {
-    res.status(200).send({ message: "File uploaded successfully." });
+  async postItem(req, res) {
+    const imageUrl = req.file ? `/api/uploads/${req.file.filename}` : null;
+    const { user, room, addText, file, maker } = req.body;
+    const postToDB = {
+      user_id: user,
+      room: room,
+      maker: maker,
+      add_text: addText,
+      image: imageUrl,
+      created_at: new Date().toISOString(),
+    };
+    const body = await itemsModel.insertItem(postToDB);
+    res.status(200).send(body);
+  },
+
+  async deleteItem(req, res) {
+    const deleteId = req.params.id;
+    const body = await itemsModel.deleteAt(deleteId);
+    res.status(204).send();
   },
 };
