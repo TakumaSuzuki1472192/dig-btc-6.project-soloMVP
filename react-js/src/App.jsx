@@ -8,9 +8,10 @@ import SideBar from "./components/SideBar";
 function App() {
   const [itemList, setItemList] = useState([]);
   const [refresh, setRefresh] = useState([true]);
+  const [searchRoom, setSearchRoom] = useState("");
 
   useEffect(() => {
-    axios.get("/api/items").then((res) => {
+    axios.get(`/api/items/${searchRoom}`).then((res) => {
       setItemList(res.data);
     });
   }, [refresh]);
@@ -28,10 +29,10 @@ function App() {
         </header>
         <main>
           <div className="localNavigation">
-            <SideBar setRefresh={setRefresh} />
+            <SideBar setRefresh={setRefresh} setSearchRoom={setSearchRoom} />
           </div>
           <div className="content">
-            <View itemList={itemList} setRefresh={setRefresh}/>
+            <View itemList={itemList} setRefresh={setRefresh} />
           </div>
         </main>
       </div>

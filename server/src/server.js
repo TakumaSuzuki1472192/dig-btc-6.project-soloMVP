@@ -35,7 +35,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 //
 
-app.get("/api/items", itemsController.index);
+app.get("/api/items/:search?", itemsController.index);
 app.post("/api/items",upload.single("file"), itemsController.postItem); 
 //upload.singleでサーバーへの保存とreq.fileに情報追加しpostItem起動
 app.delete("/api/items/:id", itemsController.deleteItem); 

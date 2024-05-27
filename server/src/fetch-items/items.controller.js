@@ -2,7 +2,8 @@ const itemsModel = require("./items.model");
 
 module.exports = {
   async index(req, res) {
-    const items = await itemsModel.getAll(1000);
+    const search = req.params.search;
+    const items = await itemsModel.getAll(1000,search);
     res.status(200).json(items);
   },
 
